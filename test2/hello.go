@@ -43,6 +43,11 @@ func main() {
 	main12()
 	main13()
 	main14()
+	testVertex()
+	testMyFloat()
+	testInterface()
+	test_routine()
+	testChannel()
 }
 
 func main2() {
