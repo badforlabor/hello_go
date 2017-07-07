@@ -12,6 +12,7 @@ func main() {
 	testFor()
 	testRange()
 	testSwitch()
+	testOther()
 
 	fmt.Println("test end")
 }

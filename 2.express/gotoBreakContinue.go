@@ -3,57 +3,46 @@ package main
 import "fmt"
 
 /*
-	switch，不需要写break，自动break
-	如果想不break，那么用fallthrough关键字
-	可以忽略条件表达式
+	goto,
+	break   可以用于for，switch，select
+	continue   只能用于for
 */
 func testOther() {
 
-	x := []int{1, 2}
-	for _, i := range x {
-
-		// 当i=1的时候，看到的结果是1
-		// 当i=2的时候，看到的结果是2 3
-		switch i {
-		case 1:
-			fmt.Println("1")
-		case 2:
-			fmt.Println("2")
-			fallthrough // 继续下一条
-		case 3:
-			fmt.Println("3")
+	// continue
+	for i := 0; i < 10; i++ {
+		if i < 9 {
+			// 跳过前就此
+			continue
 		}
-
+		// 直接终止for循环
+		break
+		fmt.Println("10000000000000")
 	}
 
-	for _, i := range x {
-		// 忽略条件表达式的switch，就相当于if else
-		switch {
-		case i == 1:
-			fmt.Println("1")
-		case i == 2:
-			fmt.Println("2")
-			fallthrough // 继续下一条
-		case i == 3:
-			fmt.Println("3")
+	var it int
+	for {
+		fmt.Println("gooooooooooo")
+		it++
+		if it > 0 {
+			goto BREAK
 		}
 	}
+BREAK:
+	fmt.Println("BREAK")
 
-	for _, i := range x {
-		// 忽略条件表达式的switch，就相当于if else
-		switch {
-		case i == 1:
-			fmt.Println("1")
-		case i == 2:
-
-			fmt.Println("2")
-			fallthrough // 继续下一条
-		case i == 3:
-			// 当然也可以用break
-			if i == 2 {
-				break
+	// break, continue 还能这样用
+L1:
+	for i := 0; i < 3; i++ {
+	L2:
+		for j := 0; j < 3; j++ {
+			if j > 2 {
+				continue L2
 			}
-			fmt.Println("3")
+			if i > 1 {
+				break L1
+			}
+			fmt.Println("i:", i, "j:", j)
 		}
 	}
 }
