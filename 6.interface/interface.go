@@ -44,6 +44,15 @@ type Tester struct {
 	}
 }
 
+func testChannel() {
+	var i chan int
+	i = make(chan int, 1)
+
+	data := make(chan int)
+	exit := make(chan bool)
+
+}
+
 func main() {
 	Print(1)
 	Print("hello world")
