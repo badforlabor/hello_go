@@ -68,21 +68,6 @@ var fns = [](func(x int) int){
 	func(x int) int { return x + 2 },
 }
 
-func trycatch() {
-	defer func() {
-		if err := recover(); err != nil {
-			fmt.Println(err)
-		}
-	}()
-
-	x := []int{}
-	// 这里会抛出一个异常
-	fmt.Println(x[0])
-
-	// 手动抛异常
-	panic("throw exception.")
-}
-
 func main() {
 
 	// 捕获所有异常
