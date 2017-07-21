@@ -5,5 +5,8 @@ import (
 )
 
 func main() {
+
+	testInterface()
+
 	fmt.Println("test end")
 }
