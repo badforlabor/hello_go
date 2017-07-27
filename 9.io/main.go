@@ -7,6 +7,7 @@ import (
 func main() {
 
 	testInterface()
+	testBuf()
 
 	fmt.Println("test end")
 }
