@@ -22,6 +22,7 @@ func main() {
 	testField()
 	testNested()
 	testFunc()
+	testIf()
 
 
 	fmt.Println("test end")

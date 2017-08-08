@@ -46,6 +46,11 @@ func testStruct() {
 	fmt.Println(r)
 	proc2(&r)
 	fmt.Println(r)
+
+	checkType(r)
+	checkType(&r)
+	checkType(&Resource{})
+
 }
 
 // 传值，复制一份
@@ -56,4 +61,12 @@ func proc(r Resource) {
 // 传引用才好用。
 func proc2(r *Resource) {
 	r.id = 1
+}
+func checkType(obj interface{}) {
+	switch obj.(type) {
+	case Resource:
+		fmt.Println("resource")
+	case *Resource:
+		fmt.Println("ptr resource")
+	}
 }
