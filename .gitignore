@@ -14,3 +14,7 @@
 .glide/
 debug
 *.exe
+.idea/
+.vscode/
+9.io/writeAt.txt
+7.reflect/1.json

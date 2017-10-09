@@ -2,7 +2,15 @@ package main
 
 import "fmt"
 
+var mapvalue map[int]string
+
 func testMap() {
+
+	// map未初始化的时候，为nil。
+	// 使用前必须先make初始化
+	mapvalue = make(map[int]string)
+	mapvalue[1] = "1"
+
 	{
 		m := map[int]struct {
 			name string
