@@ -59,12 +59,15 @@ func testSlice() {
 
 	// 切片和数据传参的区别
 	{
+		// 这个是数组，执行changeValue2后，并不会修改原有数组的值
 		data := [5]int{0, 1, 2, 3, 4}
 		changeValue2(data)
 		fmt.Println("changevalue2:", data)
 		s1 := data[0:2]
 		//changeValue(data)
 		//fmt.Println("changevalue:", data)
+
+		// 这个是切片，内部引用的是数组，执行changeValue后，数值会改变
 		changeValue(s1)
 		fmt.Println("changevalue:", data)
 		d1 := []int{0, 1, 2, 3, 4}
@@ -80,4 +83,19 @@ func changeValue(d []int) {
 }
 func testSliceAddr(s []int) {
 	fmt.Printf("%p \n", s)
+}
+
+
+func testSlice2() {
+	data := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+	// 这个操作并不会导致结果变成1,2,3,4...
+	for _, v := range data {
+		v += 1
+	}
+	fmt.Println(data)
+
+	for i, _ := range data {
+		data[i] += 1
+	}
+	fmt.Println(data)
 }

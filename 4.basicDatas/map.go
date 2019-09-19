@@ -42,3 +42,26 @@ func testMap() {
 		delete(m, "c")
 	}
 }
+
+func testMap2() {
+	m := map[int]struct {
+		name string
+		age  int
+	}{
+		1: {"user1", 18},
+		2: {"user2", 20},
+	}
+
+	// 这个操作，并不会修改m
+	for _, v := range m {
+		v.age += 1
+	}
+	fmt.Println(m)
+
+	// 重新赋值之后才可以
+	for k, v := range m {
+		v.age += 1
+		m[k] = v
+	}
+	fmt.Println(m)
+}
