@@ -73,6 +73,12 @@ func testSlice() {
 		d1 := []int{0, 1, 2, 3, 4}
 		changeValue(d1)
 		fmt.Println(d1)
+
+		appendValue(d1)
+		fmt.Println(d1)
+
+		appendValuePtr(&d1)
+		fmt.Println(d1)
 	}
 }
 func changeValue2(d [5]int) {
@@ -83,6 +89,16 @@ func changeValue(d []int) {
 }
 func testSliceAddr(s []int) {
 	fmt.Printf("%p \n", s)
+}
+func appendValue(d []int) {
+	// 无效果
+	// 新开辟了一块内存
+	d = append(d, 0, 0, 0)
+}
+func appendValuePtr(d *[]int) {
+	// 有效果
+	// 新开辟了内存，但是又被原有的d指向了。
+	*d = append(*d, 0, 0, 0)
 }
 
 

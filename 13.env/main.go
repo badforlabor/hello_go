@@ -25,7 +25,7 @@ func main() {
 	if err == nil {
 		v, _, err := key.GetStringValue("Path")
 		if err == nil {
-			fmt.Printf("用户环境变量：%s\n", v)
+			fmt.Printf("用户环境变量：%s", v)
 		}
 		key.SetStringValue("aaa", "bbb")
 		key.DeleteValue("aaa")

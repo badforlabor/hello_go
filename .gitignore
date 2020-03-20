@@ -19,3 +19,5 @@ debug
 9.io/writeAt.txt
 7.reflect/1.json
 1.json
+
+go.sum
