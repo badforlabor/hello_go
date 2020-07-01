@@ -13,6 +13,7 @@ func main() {
 	testRange()
 	testSwitch()
 	testOther()
+	testCast()
 
 	fmt.Println("test end")
 }

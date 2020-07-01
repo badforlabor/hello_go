@@ -11,10 +11,10 @@ import (
 	"reflect"
 )
 
-type TestA struct {
+type TestEventA struct {
 	A string
 }
-func (self *TestA) showme(b int) {
+func (self *TestEventA) showme(b int) {
 	fmt.Println(self.A, b)
 }
 
@@ -25,8 +25,8 @@ func main() {
 	})
 	FireEvent("1")
 
-	var a = &TestA{A:"aaaaa"}
-	var b = &TestA{A:"bbbbb"}
+	var a = &TestEventA{A: "aaaaa"}
+	var b = &TestEventA{A: "bbbbb"}
 	RegEvent("a", a.showme)
 	RegEvent("b",  b.showme)
 
