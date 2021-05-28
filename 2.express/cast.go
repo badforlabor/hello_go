@@ -16,9 +16,24 @@ type CastB struct {
 }
 
 func testCast() {
-	var a interface{} = &CastA{}
-	var b = a.(*CastB)	// 这种会直接崩溃的
-	if b != nil {
-		fmt.Println(b.b)
+
+	{
+		var a interface{}
+		a = nil
+		var b, ok = a.(int)
+		if ok {
+			fmt.Println(b)
+		} else {
+			fmt.Println("转化失败:", ok)
+		}
+
+	}
+
+	{
+		var a interface{} = &CastA{}
+		var b = a.(*CastB)	// 这种会直接崩溃的
+		if b != nil {
+			fmt.Println(b.b)
+		}
 	}
 }

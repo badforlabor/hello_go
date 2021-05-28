@@ -1,18 +1,9 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 	"os"
 )
-
-func Rename(oldpath, newpath string) error {
-	var f, e = os.Open(newpath)
-	if e != nil || f != nil {
-		return errors.New("目录路径非法")
-	}
-}
-
 
 func main() {
 
